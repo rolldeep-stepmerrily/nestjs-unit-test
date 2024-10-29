@@ -4,8 +4,8 @@ import Joi from 'joi';
 
 import { PrismaModule } from './prisma/prisma.module';
 import { HttpLoggerMiddleware } from './common/middlewares';
-import { AppController } from './app.controller';
 import { ConfigProviderModule } from './common/config-provider';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -26,8 +26,8 @@ import { ConfigProviderModule } from './common/config-provider';
     }),
     PrismaModule,
     ConfigProviderModule,
+    UsersModule,
   ],
-  controllers: [AppController],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
