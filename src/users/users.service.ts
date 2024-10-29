@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import bcrypt from 'bcrypt';
 
 import { UsersRepository } from './users.repository';
 import { CreateUserDto } from './users.dto';
@@ -16,7 +17,13 @@ export class UsersService {
   }
 
   async findUserById(userId: number) {
-    return await this.usersRepository.findUserById(userId);
+    const user = await this.usersRepository.findUserById(userId);
+
+    if (!user) {
+      throw new CustomHttpException(USER_ERRORS.USER_NOT_FOUND);
+    }
+
+    return user;
   }
 
   async createUser({ email, password }: CreateUserDto) {
@@ -26,6 +33,8 @@ export class UsersService {
       throw new CustomHttpException(USER_ERRORS.ALREADY_EXIST_EMAIL);
     }
 
-    return await this.usersRepository.createUser(email, password);
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    return await this.usersRepository.createUser(email, hashedPassword);
   }
 }

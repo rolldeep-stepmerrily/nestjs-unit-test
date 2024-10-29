@@ -6,4 +6,9 @@ export const USER_ERRORS = {
     errorCode: 'ALREADY_EXIST_EMAIL',
     message: 'user email already exist',
   },
+  USER_NOT_FOUND: {
+    statusCode: HttpStatus.NOT_FOUND,
+    errorCode: 'USER_NOT_FOUND',
+    message: 'user not nound',
+  },
 };
