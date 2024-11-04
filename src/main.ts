@@ -1,14 +1,15 @@
+import { ValidationPipe } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import { ConfigService } from '@nestjs/config';
-import { ValidationPipe } from '@nestjs/common';
-import helmet from 'helmet';
-import expressBasicAuth from 'express-basic-auth';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
+import expressBasicAuth from 'express-basic-auth';
+import helmet from 'helmet';
+
 import { AppModule } from './app.module';
-import { TransformInterceptor } from './common/interceptors';
 import { HttpExceptionFilter } from './common/filters';
+import { TransformInterceptor } from './common/interceptors';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
