@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
+import { CustomHttpException, GLOBAL_ERRORS } from '@@exceptions';
+
 import { PrismaService } from 'src/prisma/prisma.service';
-import { CustomHttpException, GLOBAL_ERRORS } from 'src/common/exceptions';
 
 @Injectable()
 export class UsersRepository {

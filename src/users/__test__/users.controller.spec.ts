@@ -1,10 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
+import { CustomHttpException } from '@@exceptions';
+
 import { UsersController } from '../users.controller';
-import { UsersService } from '../users.service';
-import { CustomHttpException } from 'src/common/exceptions';
-import { USER_ERRORS } from '../users.exception';
 import { CreateUserDto } from '../users.dto';
+import { USER_ERRORS } from '../users.exception';
+import { UsersService } from '../users.service';
 
 describe('UsersController', () => {
   let controller: UsersController;

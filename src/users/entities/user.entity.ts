@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+
 import { User as UserModel } from '@prisma/client';
 import { IsEmail, Matches } from 'class-validator';
 

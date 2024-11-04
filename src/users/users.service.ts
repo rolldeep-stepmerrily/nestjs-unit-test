@@ -1,10 +1,12 @@
 import { Injectable } from '@nestjs/common';
+
 import bcrypt from 'bcrypt';
 
-import { UsersRepository } from './users.repository';
+import { CustomHttpException } from '@@exceptions';
+
 import { CreateUserDto } from './users.dto';
-import { CustomHttpException } from 'src/common/exceptions';
 import { USER_ERRORS } from './users.exception';
+import { UsersRepository } from './users.repository';
 
 @Injectable()
 export class UsersService {

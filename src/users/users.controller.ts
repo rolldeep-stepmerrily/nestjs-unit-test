@@ -1,8 +1,9 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 
-import { UsersService } from './users.service';
-import { ParsePositiveIntPipe } from 'src/common/pipes';
+import { ParsePositiveIntPipe } from '@@pipes';
+
 import { CreateUserDto } from './users.dto';
+import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {

@@ -1,14 +1,17 @@
 import { ConfigModule } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
+
 import { User as UserModel } from '@prisma/client';
 import bcrypt from 'bcrypt';
 
-import { UsersService } from '../users.service';
-import { UsersRepository } from '../users.repository';
+import { CustomHttpException } from '@@exceptions';
+
 import { PrismaModule } from 'src/prisma/prisma.module';
+
 import { CreateUserDto } from '../users.dto';
-import { CustomHttpException } from 'src/common/exceptions';
 import { USER_ERRORS } from '../users.exception';
+import { UsersRepository } from '../users.repository';
+import { UsersService } from '../users.service';
 
 jest.mock('bcrypt');
 
